@@ -6,12 +6,12 @@
 WORKDIR = %cd%
 
 CC = gcc.exe
-CXX = g++.exe
+CXX = gcc.exe
 AR = ar.exe
-LD = g++.exe
+LD = gcc.exe
 WINDRES = windres.exe
 
-INC = 
+INC = headers
 CFLAGS = -Wall -DCURL_STATICLIB
 RESINC = 
 LIBDIR = 
@@ -19,12 +19,13 @@ LIB =
 LDFLAGS = -lcurl -lws2_32 -lwldap32
 
 INC_DEBUG = $(INC)
-CFLAGS_DEBUG = $(CFLAGS) -g
+CFLAGS_DEBUG = $(CFLAGS) -g -I
 RESINC_DEBUG = $(RESINC)
 RCFLAGS_DEBUG = $(RCFLAGS)
 LIBDIR_DEBUG = $(LIBDIR)
 LIB_DEBUG = $(LIB)
 LDFLAGS_DEBUG = $(LDFLAGS)
+SRCDIR_DEBUG = source
 OBJDIR_DEBUG = obj\\Debug
 DEP_DEBUG = 
 OUT_DEBUG = bin\\Debug\\Product\ Manager.exe
@@ -59,29 +60,29 @@ debug: before_debug out_debug after_debug
 out_debug: before_debug $(OBJ_DEBUG) $(DEP_DEBUG)
 	$(LD) $(LIBDIR_DEBUG) -o $(OUT_DEBUG) $(OBJ_DEBUG)  $(LDFLAGS_DEBUG) $(LIB_DEBUG)
 
-$(OBJDIR_DEBUG)\\check_updates.o: check_updates.c
-	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c check_updates.c -o $(OBJDIR_DEBUG)\\check_updates.o
+$(OBJDIR_DEBUG)\\check_updates.o: $(SRCDIR_DEBUG)\\check_updates.c
+	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(SRCDIR_DEBUG)\\check_updates.c -o $(OBJDIR_DEBUG)\\check_updates.o
 
-$(OBJDIR_DEBUG)\\connection_status.o: connection_status.c
-	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c connection_status.c -o $(OBJDIR_DEBUG)\\connection_status.o
+$(OBJDIR_DEBUG)\\connection_status.o: $(SRCDIR_DEBUG)\\connection_status.c
+	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(SRCDIR_DEBUG)\\connection_status.c -o $(OBJDIR_DEBUG)\\connection_status.o
 
-$(OBJDIR_DEBUG)\\ftpget.o: ftpget.c
-	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c ftpget.c -o $(OBJDIR_DEBUG)\\ftpget.o
+$(OBJDIR_DEBUG)\\ftpget.o: $(SRCDIR_DEBUG)\\ftpget.c
+	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(SRCDIR_DEBUG)\\ftpget.c -o $(OBJDIR_DEBUG)\\ftpget.o
 
-$(OBJDIR_DEBUG)\\main.o: main.c
-	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c main.c -o $(OBJDIR_DEBUG)\\main.o
+$(OBJDIR_DEBUG)\\main.o: $(SRCDIR_DEBUG)\\main.c
+	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(SRCDIR_DEBUG)\\main.c -o $(OBJDIR_DEBUG)\\main.o
 
-$(OBJDIR_DEBUG)\\process.o: process.c
-	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c process.c -o $(OBJDIR_DEBUG)\\process.o
+$(OBJDIR_DEBUG)\\process.o: $(SRCDIR_DEBUG)\\process.c
+	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(SRCDIR_DEBUG)\\process.c -o $(OBJDIR_DEBUG)\\process.o
 
-$(OBJDIR_DEBUG)\\str_fnt.o: str_fnt.c
-	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c str_fnt.c -o $(OBJDIR_DEBUG)\\str_fnt.o
+$(OBJDIR_DEBUG)\\str_fnt.o: $(SRCDIR_DEBUG)\\str_fnt.c
+	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(SRCDIR_DEBUG)\\str_fnt.c -o $(OBJDIR_DEBUG)\\str_fnt.o
 
-$(OBJDIR_DEBUG)\\upgrade.o: upgrade.c
-	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c upgrade.c -o $(OBJDIR_DEBUG)\\upgrade.o
+$(OBJDIR_DEBUG)\\upgrade.o: $(SRCDIR_DEBUG)\\upgrade.c
+	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(SRCDIR_DEBUG)\\upgrade.c -o $(OBJDIR_DEBUG)\\upgrade.o
 
-$(OBJDIR_DEBUG)\\usb2serial_read_w32.o: usb2serial_read_w32.c
-	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c usb2serial_read_w32.c -o $(OBJDIR_DEBUG)\\usb2serial_read_w32.o
+$(OBJDIR_DEBUG)\\usb2serial_read_w32.o: $(SRCDIR_DEBUG)\\usb2serial_read_w32.c
+	$(CC) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(SRCDIR_DEBUG)\\usb2serial_read_w32.c -o $(OBJDIR_DEBUG)\\usb2serial_read_w32.o
 
 clean_debug: 
 	cmd /c del /f $(OBJ_DEBUG) $(OUT_DEBUG)
