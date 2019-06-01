@@ -31,12 +31,13 @@ DEP_DEBUG =
 OUT_DEBUG = bin\\Debug\\Product\ Manager.exe
 
 INC_RELEASE = $(INC)
-CFLAGS_RELEASE = $(CFLAGS) -O2
+CFLAGS_RELEASE = $(CFLAGS) -O2 -I
 RESINC_RELEASE = $(RESINC)
 RCFLAGS_RELEASE = $(RCFLAGS)
 LIBDIR_RELEASE = $(LIBDIR)
 LIB_RELEASE = $(LIB)
 LDFLAGS_RELEASE = $(LDFLAGS) -s
+SRCDIR_RELEASE = source
 OBJDIR_RELEASE = obj\\Release
 DEP_RELEASE = 
 OUT_RELEASE = bin\\Release\\Product\ Manager.exe
@@ -100,29 +101,29 @@ release: before_release out_release after_release
 out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 	$(LD) $(LIBDIR_RELEASE) -o $(OUT_RELEASE) $(OBJ_RELEASE)  $(LDFLAGS_RELEASE) $(LIB_RELEASE)
 
-$(OBJDIR_RELEASE)\\check_updates.o: check_updates.c
-	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c check_updates.c -o $(OBJDIR_RELEASE)\\check_updates.o
+$(OBJDIR_RELEASE)\\check_updates.o: $(SRCDIR_RELEASE)\\check_updates.c
+	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c $(SRCDIR_RELEASE)\\check_updates.c -o $(OBJDIR_RELEASE)\\check_updates.o
 
-$(OBJDIR_RELEASE)\\connection_status.o: connection_status.c
-	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c connection_status.c -o $(OBJDIR_RELEASE)\\connection_status.o
+$(OBJDIR_RELEASE)\\connection_status.o: $(SRCDIR_RELEASE)\\connection_status.c
+	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c $(SRCDIR_RELEASE)\\connection_status.c -o $(OBJDIR_RELEASE)\\connection_status.o
 
-$(OBJDIR_RELEASE)\\ftpget.o: ftpget.c
-	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ftpget.c -o $(OBJDIR_RELEASE)\\ftpget.o
+$(OBJDIR_RELEASE)\\ftpget.o: $(SRCDIR_RELEASE)\\ftpget.c
+	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c $(SRCDIR_RELEASE)\\ftpget.c -o $(OBJDIR_RELEASE)\\ftpget.o
 
-$(OBJDIR_RELEASE)\\main.o: main.c
-	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c main.c -o $(OBJDIR_RELEASE)\\main.o
+$(OBJDIR_RELEASE)\\main.o: $(SRCDIR_RELEASE)\\main.c
+	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c $(SRCDIR_RELEASE)\\main.c -o $(OBJDIR_RELEASE)\\main.o
 
-$(OBJDIR_RELEASE)\\process.o: process.c
-	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c process.c -o $(OBJDIR_RELEASE)\\process.o
+$(OBJDIR_RELEASE)\\process.o: $(SRCDIR_RELEASE)\\process.c
+	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c $(SRCDIR_RELEASE)\\process.c -o $(OBJDIR_RELEASE)\\process.o
 
-$(OBJDIR_RELEASE)\\str_fnt.o: str_fnt.c
-	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c str_fnt.c -o $(OBJDIR_RELEASE)\\str_fnt.o
+$(OBJDIR_RELEASE)\\str_fnt.o: $(SRCDIR_RELEASE)\\str_fnt.c
+	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c $(SRCDIR_RELEASE)\\str_fnt.c -o $(OBJDIR_RELEASE)\\str_fnt.o
 
-$(OBJDIR_RELEASE)\\upgrade.o: upgrade.c
-	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c upgrade.c -o $(OBJDIR_RELEASE)\\upgrade.o
+$(OBJDIR_RELEASE)\\upgrade.o: $(SRCDIR_RELEASE)\\upgrade.c
+	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c $(SRCDIR_RELEASE)\\upgrade.c -o $(OBJDIR_RELEASE)\\upgrade.o
 
-$(OBJDIR_RELEASE)\\usb2serial_read_w32.o: usb2serial_read_w32.c
-	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c usb2serial_read_w32.c -o $(OBJDIR_RELEASE)\\usb2serial_read_w32.o
+$(OBJDIR_RELEASE)\\usb2serial_read_w32.o: $(SRCDIR_RELEASE)\\usb2serial_read_w32.c
+	$(CC) $(CFLAGS_RELEASE) $(INC_RELEASE) -c $(SRCDIR_RELEASE)\\usb2serial_read_w32.c -o $(OBJDIR_RELEASE)\\usb2serial_read_w32.o
 
 clean_release: 
 	cmd /c del /f $(OBJ_RELEASE) $(OUT_RELEASE)
