@@ -22,3 +22,11 @@ Arduino UNO
 	
 ### Utility used to upload code to the Microcontroller ### 
 AVRDUDE
+
+### Code References ###
+	-> Serial-Programming-Win32API-C: https://github.com/xanthium-enterprises/Serial-Programming-Win32API-C
+   	   Link to reference used: 
+	   https://github.com/Saurabh702/Update-Delivery-For-Microcontrollers/blob/develop/source/usb2serial_read_w32.c
+
+Note: For more details refer to the report 
+Link: https://github.com/Saurabh702/Update-Delivery-For-Microcontrollers/blob/master/Report.pdf
