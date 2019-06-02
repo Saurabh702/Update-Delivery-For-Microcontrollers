@@ -21,7 +21,7 @@ Codeblocks
 Arduino UNO
 	
 ### Utility used to upload code to the Microcontroller ### 
-AVRDUDE
+AVRDUDE (Link: https://www.nongnu.org/avrdude/)
 
 ### Code References ###
 	-> Serial-Programming-Win32API-C: https://github.com/xanthium-enterprises/Serial-Programming-Win32API-C
