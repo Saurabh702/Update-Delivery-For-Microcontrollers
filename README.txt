@@ -23,6 +23,20 @@ Arduino UNO
 ### Utility used to upload code to the Microcontroller ### 
 AVRDUDE (Link: https://www.nongnu.org/avrdude/)
 
+### Server ###
+Server files are located in updates folder.
+(Place the updates folder in your server's directory and change the server address in main.c, ex: http://127.0.0.1/updates)
+It contains two files: package.hex and index.html
+index.html -> Contains version of the packaged update (Hosted version)
+package.hex -> pre-compiled hex update (for arduino uno based microcontroller)
+The above update is based on sample blink example provided by Arduino IDE with modified delay interval of 5000ms 
+Link: https://github.com/arduino/Arduino/blob/master/build/shared/examples/01.Basics/Blink/Blink.ino
+(On successful update of the Arduino UNO, expect the LED to blink every 5 seconds)
+
+### Debugging/Testing ###
+If microcontroller is not available, use Null-modem emulator to test/debug 
+Link: https://sourceforge.net/projects/com0com/
+
 ### Code References ###
 	-> Serial-Programming-Win32API-C: https://github.com/xanthium-enterprises/Serial-Programming-Win32API-C
    	   Link to reference used: 
