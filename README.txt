@@ -46,6 +46,7 @@ Note2: change device descriptions of the port using regedit, for ex regedit at t
     "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\com0com\port\CNCA0"
 * To send the program version, use echo <Version> > <PortNo>
 For ex: if emulator is emulating the device connection at COM5 and COM6 port is sending data to COM5, then echo 10.0 > COM6
+
 ### Assumptions ###
 The initial program running in the microcontroller, should output the program version for the utility. In case of an Arduino Uno, the output of the program version can be done in either the setup() or loop() based on convenience. Subsequent update packages should include this functionality too.
 For Arduino Uno, the Device Description is given as "Arduino Uno"(according to arduino.inf located in drivers folder of Arduino IDE) however this is true for orginal UNO devices. Fake or clones of Arduino UNO might use different device description names, so make sure to change the device description accordingly.
