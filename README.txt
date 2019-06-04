@@ -34,13 +34,29 @@ Link: https://github.com/arduino/Arduino/blob/master/build/shared/examples/01.Ba
 (On successful update of the Arduino UNO, expect the LED to blink every 5 seconds)
 
 ### Debugging/Testing ###
-If microcontroller is not available, use Null-modem emulator to test/debug 
+If microcontroller is not available, use Null-modem emulator(com0com) to test/debug 
 Link: https://sourceforge.net/projects/com0com/
+Steps to Emulate a Device Connection (for eg: Arduino UNO) (Screenshots added in Report)
+* Run the com0com setup
+* Add a pair of devices
+* Add port class and emulate baud rate
+* Change the device description by modifying the registry
+Note1: For other microcontrollers, change either device description or friendly name in registry for emulating it
+Note2: change device descriptions of the port using regedit, for ex regedit at this location:
+    "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\com0com\port\CNCA0"
+* To send the program version, use echo <Version> > <PortNo>
+For ex: if emulator is emulating the device connection at COM5 and COM6 port is sending data to COM5, then echo 10.0 > COM6
+### Assumptions ###
+The initial program running in the microcontroller, should output the program version for the utility. In case of an Arduino Uno, the output of the program version can be done in either the setup() or loop() based on convenience. Subsequent update packages should include this functionality too.
+For Arduino Uno, the Device Description is given as "Arduino Uno"(according to arduino.inf located in drivers folder of Arduino IDE) however this is true for orginal UNO devices. Fake or clones of Arduino UNO might use different device description names, so make sure to change the device description accordingly.
 
 ### Code References ###
 	-> Serial-Programming-Win32API-C: https://github.com/xanthium-enterprises/Serial-Programming-Win32API-C
    	   Link to reference used: 
-	   https://github.com/Saurabh702/Update-Delivery-For-Microcontrollers/blob/develop/source/usb2serial_read_w32.c
+	   https://github.com/Saurabh702/Update-Delivery-For-Microcontrollers/blob/master/source/usb2serial_read_w32.c
 
 Note: For more details refer to the report 
 Link: https://github.com/Saurabh702/Update-Delivery-For-Microcontrollers/blob/master/Report.pdf
+
+### TODOS ###
+* Compatibility for other devices and Operating systems
