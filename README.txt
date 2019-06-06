@@ -46,15 +46,19 @@ Note2: change device descriptions of the port using regedit, for ex regedit at t
     "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\com0com\port\CNCA0"
 * To send the program version, use echo <Version> > <PortNo>
 For ex: if emulator is emulating the device connection at COM5 and COM6 port is sending data to COM5, then echo 10.0 > COM6
+* To enable or disable the ports, run the command line version of com0com (setupc.exe) in administrator mode
+	ex: "enable all" command enables the ports and "disable all" disables the ports
 
 ### Assumptions ###
 The initial program running in the microcontroller, should output the program version for the utility. In case of an Arduino Uno, the output of the program version can be done in either the setup() or loop() based on convenience. Subsequent update packages should include this functionality too.
 For Arduino Uno, the Device Description is given as "Arduino Uno"(according to arduino.inf located in drivers folder of Arduino IDE) however this is true for orginal UNO devices. Fake or clones of Arduino UNO might use different device description names, so make sure to change the device description accordingly.
+"avrdude" folder should be in the same folder as that of the program, for ex: if program is built using makefile, then it is located in the bin folder, so the avrdude folder should be in the bin folder.
 
 ### Code References ###
 	-> Serial-Programming-Win32API-C: https://github.com/xanthium-enterprises/Serial-Programming-Win32API-C
    	   Link to reference used: 
 	   https://github.com/Saurabh702/Update-Delivery-For-Microcontrollers/blob/master/source/usb2serial_read_w32.c
+	-> Makefile generated using cbp2make tool (https://sourceforge.net/projects/cbp2make/)
 
 Note: For more details refer to the report 
 Link: https://github.com/Saurabh702/Update-Delivery-For-Microcontrollers/blob/master/Report.pdf
